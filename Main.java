@@ -22,8 +22,27 @@ class Rotor{
         int index = (c - 'A' + position) % 26;
         return wiring.charAt(index);
     }
+
+    public char encryptBackward(char c){
+        int index = wiring.indexOf(c);
+        return (char)((index-position+26)%26 +'A');
+    }
+
+    public void step(){
+        position = (position + 1)%26;
+    }
+}
+
+class Reflector{
+    private String wiring;
     
-    
+    public Reflector(String wiring){
+        this.wiring = wiring;
+    }
+
+    public char reflect(char c){
+        return wiring.charAt(c - 'A');
+    }
 }
 
 public class Main {
